@@ -1,6 +1,6 @@
 <?php
 
-    namespace IdnoPlugins\Watching\Pages {
+    namespace IdnoPlugins\Listen\Pages {
 
         class Delete extends \Idno\Common\Page {
 
@@ -10,7 +10,7 @@
 
                 // Are we loading an entity?
                 if (!empty($this->arguments)) {
-                    $object = \IdnoPlugins\Watching\Watching::getByID($this->arguments[0]);
+                    $object = \IdnoPlugins\Listen\Listen::getByID($this->arguments[0]);
                 } else {
                     // TODO 404
                     $this->forward();
@@ -19,7 +19,7 @@
                 $t = \Idno\Core\site()->template();
                 $body = $t->__(array(
                     'object' => $object
-                ))->draw('entity/Watching/delete');
+                ))->draw('entity/Listen/delete');
 
                 if (!empty($this->xhr)) {
                     echo $body;
@@ -32,7 +32,7 @@
                 $this->createGatekeeper();
 
                 if (!empty($this->arguments)) {
-                    $object = \IdnoPlugins\Watching\Watching::getByID($this->arguments[0]);
+                    $object = \IdnoPlugins\Listen\Listen::getByID($this->arguments[0]);
                 }
                 if (empty($object)) $this->forward();
                 if (!$object->canEdit()) {
