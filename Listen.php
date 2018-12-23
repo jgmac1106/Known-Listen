@@ -66,7 +66,7 @@
             {
                 return array(
                     'type' => 'entry',
-                    'watch-type' => $this->getlistenType(),
+                    'listen-type' => $this->getlistenType(),
                     'media-url' => $this->getMediaURL(),
                     'listenauthor' => $this->getlistenauthor()
                 );
