@@ -54,7 +54,7 @@
                     } else {
 
                         ?>
-                        <h4>Edit what uyou listened to</h4>
+                        <h4>Edit what you listened to</h4>
                     <?php
 
                     }
