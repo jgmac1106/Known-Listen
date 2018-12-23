@@ -1,6 +1,6 @@
-<article class="known-listen">
-            <h2 style="display: none" class="p-name">
-                Watched <?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?>
+<article class="p-listen-of">
+            <h2 style="display: none" >
+               Listen <?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?>
             </h2>
             
             <div class="p-item h-product">                    
