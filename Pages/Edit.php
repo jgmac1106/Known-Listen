@@ -1,6 +1,6 @@
 <?php
 
-    namespace IdnoPlugins\Watching\Pages {
+    namespace IdnoPlugins\Listen\Pages {
 
         use Idno\Core\Autosave;
 
@@ -12,20 +12,20 @@
 
                 // Are we loading an entity?
                 if (!empty($this->arguments)) {
-                    $object = \IdnoPlugins\Watching\Watching::getByID($this->arguments[0]);
+                    $object = \IdnoPlugins\Listen\Listen::getByID($this->arguments[0]);
                 } else {
-                    $object = new \IdnoPlugins\Watching\Watching();
+                    $object = new \IdnoPlugins\Listen\Listen();
                 }
 
                 $t = \Idno\Core\site()->template();
                 $body = $t->__(array(
                     'object' => $object
-                ))->draw('entity/Watching/edit');
+                ))->draw('entity/Listen/edit');
 
                 if (empty($vars['object']->_id)) {
-                    $title = 'What are you watching?';
+                    $title = 'What is that podcast or groove?';
                 } else {
-                    $title = 'Edit what you watched';
+                    $title = 'Edit what you listend to';
                 }
 
                 if (!empty($this->xhr)) {
@@ -40,14 +40,14 @@
 
                 $new = false;
                 if (!empty($this->arguments)) {
-                    $object = \IdnoPlugins\Watching\Watching::getByID($this->arguments[0]);
+                    $object = \IdnoPlugins\Listen\Listen::getByID($this->arguments[0]);
                 }
                 if (empty($object)) {
-                    $object = new \IdnoPlugins\Watching\Watching();
+                    $object = new \IdnoPlugins\Listen\Listen();
                 }
 
                 if ($object->saveDataFromInput($this)) {
-                    (new \Idno\Core\Autosave())->clearContext('watching');
+                    (new \Idno\Core\Autosave())->clearContext('Listen');
                     $forward = $this->getInput('forward-to', $object->getDisplayURL());
                     $this->forward($forward);
                 }
