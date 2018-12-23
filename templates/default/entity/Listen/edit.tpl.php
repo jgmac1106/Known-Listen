@@ -1,4 +1,4 @@
-<?= $this->draw('entity/edit/header'); ?>
+ç<?= $this->draw('entity/edit/header'); ?>
 <?php
 
     $autosave = new \Idno\Core\Autosave();
@@ -12,10 +12,10 @@
     } else {
         $title = $autosave->getValue('listen', 'title');
     }
-    if (!empty($vars['object']->player)) {
-        $player = $vars['object']->player;
+    if (!empty($vars['object']->listenauthor)) {
+        $listenauthor = $vars['object']->listenauthor;
     } else {
-        $player = $autosave->getValue('listen', 'player');
+        $listenauthor = $autosave->getValue('listen', 'listenauthor');
     }
     if (!empty($vars['object']->listenType)) {
         $listenType = $vars['object']->listenType;
@@ -97,19 +97,18 @@
                     <label for="title">Media Link</label>
                     <input type="text" name="mediaURL" id="mediaURL" placeholder="Link to song, YouTube, or podcast" value="<?= htmlspecialchars($mediaURL) ?>" class="form-control"/>                    
                     
-                    <!-- styled watch type -->
-                    <label for="listenType">Movie or TV Show?</label>
+                    <!-- styled listen type -->
+                    <label for="listenType">Song or Podcast</label>
                     <div class="listenType-block">
                         <input type="hidden" name="listenType" id="listenType-id" value="<?= $listenType ?>">
                         <div id="listenType" class="listenType">
                             <div class="btn-group">
                                 <a class="btn dropdown-toggle listenType" data-toggle="dropdown" href="#" id="listenType-button" aria-expanded="false">
-                                    <i class="fa fa-film"></i> Movie <span class="caret"></span>
+                                    <i class="fa fa-volume-up"></i> Song <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#" data-listenType="movie" class="listenType-option"><i class="fa fa-film"></i> Movie</a></li>
-                                    <li><a href="#" data-listenType="tv" class="listenType-option"><i class="fa fa-tv"></i> TV Show</a></li>
-                    <li><a href="#" data-listenType="video" class="listenType-option"><i class="fa fa-video"></i>Video</a></li>
+                                    <li><a href="#" data-listenType="tv" class="listenType-option"><i class="fa fa-tv"></i>song</a></li>
+                    <li><a href="#" data-listenType="video" class="listenType-option"><i class="fa fa-rss"></i>podcast</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -201,3 +200,4 @@
 
     <div id="bodyautosave" style="display:none"></div>
 <?= $this->draw('entity/edit/footer'); ?>
+
