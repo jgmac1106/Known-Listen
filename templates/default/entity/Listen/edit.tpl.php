@@ -5,27 +5,27 @@
     if (!empty($vars['object']->body)) {
         $body = $vars['object']->body;
     } else {
-        $body = $autosave->getValue('watching', 'bodyautosave');
+        $body = $autosave->getValue('listen', 'bodyautosave');
     }
     if (!empty($vars['object']->title)) {
         $title = $vars['object']->title;
     } else {
-        $title = $autosave->getValue('watching', 'title');
+        $title = $autosave->getValue('listen', 'title');
     }
     if (!empty($vars['object']->player)) {
         $player = $vars['object']->player;
     } else {
-        $player = $autosave->getValue('watching', 'player');
+        $player = $autosave->getValue('listen', 'player');
     }
-    if (!empty($vars['object']->watchType)) {
-        $watchType = $vars['object']->watchType;
+    if (!empty($vars['object']->listenType)) {
+        $listenType = $vars['object']->listenType;
     } else {
-        $watchType = $autosave->getValue('watching', 'watchType');
+        $listenType = $autosave->getValue('listen', 'listenType');
     }
     if (!empty($vars['object']->mediaURL)) {
         $mediaURL = $vars['object']->mediaURL;
     } else {
-        $mediaURL = $autosave->getValue('watching', 'mediaURL');
+        $mediaURL = $autosave->getValue('listen', 'mediaURL');
     }
     if (!empty($vars['object'])) {
         $object = $vars['object'];
@@ -48,13 +48,13 @@
                     if (empty($vars['object']->_id)) {
 
                         ?>
-                        <h4>What are you watching?</h4>
+                        <h4>What is that song or podcast?</h4>
                     <?php
 
                     } else {
 
                         ?>
-                        <h4>Edit what you watched</h4>
+                        <h4>Edit what uyou listened to</h4>
                     <?php
 
                     }
@@ -87,35 +87,35 @@
                 <div class="content-form">
 
                     <style>
-                        .watchType-block {
+                        .listenType-block {
                             margin-bottom: 1em;
                         }
                     </style>
                     <label for="title">Title</label>
-                    <input type="text" name="title" id="title" placeholder="The title of the movie or TV show you watched" value="<?= htmlspecialchars($title) ?>" class="form-control"/>                    
+                    <input type="text" name="title" id="title" placeholder="The title of the song, podcast, or album" value="<?= htmlspecialchars($title) ?>" class="form-control"/>                    
                     
                     <label for="title">Media Link</label>
-                    <input type="text" name="mediaURL" id="mediaURL" placeholder="Link to movie or TV show you watched, perhaps on IMDB" value="<?= htmlspecialchars($mediaURL) ?>" class="form-control"/>                    
+                    <input type="text" name="mediaURL" id="mediaURL" placeholder="Link to song, YouTube, or podcast" value="<?= htmlspecialchars($mediaURL) ?>" class="form-control"/>                    
                     
                     <!-- styled watch type -->
-                    <label for="watchType">Movie or TV Show?</label>
-                    <div class="watchType-block">
-                        <input type="hidden" name="watchType" id="watchType-id" value="<?= $watchType ?>">
-                        <div id="watchType" class="watchType">
+                    <label for="listenType">Movie or TV Show?</label>
+                    <div class="listenType-block">
+                        <input type="hidden" name="listenType" id="listenType-id" value="<?= $listenType ?>">
+                        <div id="listenType" class="listenType">
                             <div class="btn-group">
-                                <a class="btn dropdown-toggle watchType" data-toggle="dropdown" href="#" id="watchType-button" aria-expanded="false">
+                                <a class="btn dropdown-toggle listenType" data-toggle="dropdown" href="#" id="listenType-button" aria-expanded="false">
                                     <i class="fa fa-film"></i> Movie <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#" data-watchType="movie" class="watchType-option"><i class="fa fa-film"></i> Movie</a></li>
-                                    <li><a href="#" data-watchType="tv" class="watchType-option"><i class="fa fa-tv"></i> TV Show</a></li>
-				    <li><a href="#" data-watchType="video" class="watchType-option"><i class="fa fa-video"></i>Video</a></li>
+                                    <li><a href="#" data-listenType="movie" class="listenType-option"><i class="fa fa-film"></i> Movie</a></li>
+                                    <li><a href="#" data-listenType="tv" class="listenType-option"><i class="fa fa-tv"></i> TV Show</a></li>
+                    <li><a href="#" data-listenType="video" class="listenType-option"><i class="fa fa-video"></i>Video</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <style>
-                        a.watchType {
+                        a.listenType {
                             background-color: #fff;
                             background-image: none;
                             border: 1px solid #cccccc;
@@ -124,32 +124,32 @@
                             color: #555555;
                         }
 
-                        .watchType .caret {
+                        .listenType .caret {
                                 border-top: 4px solid #555;
                         }
                     </style>
                     <script>
                         $(document).ready(function () {
-                            $('.watchType-option').each(function () {
-                                if ($(this).data('watchtype') == $('#watchType-id').val()) {
-                                    $('#watchType-button').html($(this).html() + ' <span class="caret"></span>');
+                            $('.listenType-option').each(function () {
+                                if ($(this).data('listenType') == $('#listenType-id').val()) {
+                                    $('#listenType-button').html($(this).html() + ' <span class="caret"></span>');
                                 }
                             })
                         });
-                        $('.watchType-option').on('click', function () {
-                            $('#watchType-id').val($(this).data('watchtype'));
-                            $('#watchType-button').html($(this).html() + ' <span class="caret"></span>');
-                            $('#watchType-button').click();
+                        $('.listenType-option').on('click', function () {
+                            $('#listenType-id').val($(this).data('listenType'));
+                            $('#listenType-button').html($(this).html() + ' <span class="caret"></span>');
+                            $('#listenType-button').click();
                             return false;
                         });
                        
-                        $('#watchType-id').on('change', function () {
+                        $('#listenType-id').on('change', function () {
                         });
                     </script>
                     <!-- end styled watch type -->
                      
-                    <label for="player">Player</label>
-                    <input type="text" name="player" id="player" placeholder="Where did you watch it?" value="<?= htmlspecialchars($player) ?>" class="form-control"/>                    
+                    <label for="listenauthor">Artist</label>
+                    <input type="text" name="listenauthor" id="listenauthor" placeholder="Who is the artist?" value="<?= htmlspecialchars($listenauthor) ?>" class="form-control"/>                    
                 </div>
                 
                 <label for="body">Summary</label>
@@ -167,9 +167,9 @@
                 <?= $this->draw('content/access'); ?>
 
                 <p class="button-bar ">
-	                
-                    <?= \Idno\Core\site()->actions()->signForm('/watching/edit') ?>
-                    <input type="button" class="btn btn-cancel" value="Cancel" onclick="tinymce.EditorManager.execCommand('mceRemoveEditor',true, 'body'); hideContentCreateForm();"/>
+                    
+                    <?= \Idno\Core\site()->actions()->signForm('/listen/edit') ?>
+                    <input type="button" class="btn btn-cancel" value="Cancel" onclick="tinymce.EditorManager.execCommand('mceRemoveEditor',false, 'body'); hideContentCreateForm();"/>
                     <input type="submit" class="btn btn-primary" value="Publish"/>
 
                 </p>
