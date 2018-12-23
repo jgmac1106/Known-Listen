@@ -10,7 +10,7 @@
                 \Idno\Core\site()->addPageHandler('/listen/delete/([A-Za-z0-9]+)/?', '\IdnoPlugins\listen\Pages\Delete');
                 \Idno\Core\site()->addPageHandler('/listen/([A-Za-z0-9]+)/.*', '\Idno\Pages\Entity\View');
                 
-                \Idno\Core\site()->addPageHandler('/listen/webhook/', '\IdnoPlugins\listen\Pages\Endpoint', true);
+                \Idno\Core\site()->addPageHandler('/listen/webhook/', '\IdnoPlugins\listen\Pages\Endpoint', false);
             }
 
             /**
