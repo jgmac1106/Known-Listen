@@ -1,1 +1,1 @@
-<i class="fa fa-film"></i>
+<i class="fa fa-megaphone"></i>
