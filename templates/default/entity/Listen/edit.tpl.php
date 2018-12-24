@@ -1,4 +1,4 @@
-ç<?= $this->draw('entity/edit/header'); ?>
+<?= $this->draw('entity/edit/header'); ?>
 <?php
 
     $autosave = new \Idno\Core\Autosave();

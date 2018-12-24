@@ -1,16 +1,16 @@
 <?php
 
-    namespace IdnoPlugins\listen {
+    namespace IdnoPlugins\Listen {
 
         class Main extends \Idno\Common\Plugin {
 
             function registerPages() {
-                \Idno\Core\site()->addPageHandler('/listen/edit/?', '\IdnoPlugins\listen\Pages\Edit');
-                \Idno\Core\site()->addPageHandler('/listen/edit/([A-Za-z0-9]+)/?', '\IdnoPlugins\listen\Pages\Edit');
-                \Idno\Core\site()->addPageHandler('/listen/delete/([A-Za-z0-9]+)/?', '\IdnoPlugins\listen\Pages\Delete');
+                \Idno\Core\site()->addPageHandler('/listen/edit/?', '\IdnoPlugins\Listen\Pages\Edit');
+                \Idno\Core\site()->addPageHandler('/listen/edit/([A-Za-z0-9]+)/?', '\IdnoPlugins\Listen\Pages\Edit');
+                \Idno\Core\site()->addPageHandler('/listen/delete/([A-Za-z0-9]+)/?', '\IdnoPlugins\Listen\Pages\Delete');
                 \Idno\Core\site()->addPageHandler('/listen/([A-Za-z0-9]+)/.*', '\Idno\Pages\Entity\View');
                 
-                \Idno\Core\site()->addPageHandler('/listen/webhook/', '\IdnoPlugins\listen\Pages\Endpoint', false);
+                \Idno\Core\site()->addPageHandler('/listen/webhook/', '\IdnoPlugins\Listen\Pages\Endpoint', false);
             }
 
             /**

@@ -1,10 +1,10 @@
 <?php
 
-    namespace IdnoPlugins\listen {
+    namespace IdnoPlugins\Listen {
 
         use Idno\Core\Autosave;
 
-        class listen extends \Idno\Common\Entity
+        class Listen extends \Idno\Common\Entity
         {
 
             function getTitle()
