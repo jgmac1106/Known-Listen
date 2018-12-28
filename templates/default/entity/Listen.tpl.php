@@ -3,7 +3,7 @@
                Listen <?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?>
             </h2>
             
-            <div class="p-item h-product">                    
+            <div class="h-cite">                    
                 <?php
                     if ($attachments = $vars['object']->getAttachments()) {
                         foreach ($attachments as $attachment) {
