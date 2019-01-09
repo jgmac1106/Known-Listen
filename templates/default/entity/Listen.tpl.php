@@ -1,6 +1,6 @@
 <article class="p-listen-of">
             <h2 style="display: none" >
-               Listen <?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?>
+               Listened to <?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?>
             </h2>
             
             <div class="h-cite">                    
@@ -39,11 +39,11 @@
                     }
                     if (empty($vars['object']->getMediaURL())) {
                     ?>
-                    Listen <span class="p-name"><?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?></span>
+                    Listened to <span class="p-name"><?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?></span>
                     <?php
                     } else {
                     ?>
-                   Listen <a href="<?= $vars['object']->getMediaURL() ?>" class="p-name"><?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?></a>
+                   Listened to <a href="<?= $vars['object']->getMediaURL() ?>" class="p-name"><?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?></a>
                     <?php
                     }
                     ?>
@@ -53,9 +53,9 @@
                 <?= $this->__(['value' => $vars['object']->body, 'object' => $vars['object']])->draw('forms/output/richtext'); ?>
 
                 <?php
-                if (!empty($vars['object']->getlistenauthor())) {
+                if (!empty($vars['object']->getListenAuthor())) {
                 ?>
-                <p style="font-style: italic; text-align: right;">By  <?= $vars['object']->getlistenauthor() ?></p>
+                <p style="font-style: italic; text-align: right;">By  <?= $vars['object']->getListenAuthor() ?></p>
                 <?php
                 }
                 ?>                

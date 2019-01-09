@@ -21,14 +21,14 @@
                 return '';
             }
 
-            function getlistenauthor()
+            function getListenAuthor()
             {
-                if (!empty($this->listenauthor)) return $this->listenauthor;
+                if (!empty($this->listenAuthor)) return $this->listenAuthor;
 
                 return '';
             }
 
-            function getlistenType()
+            function getListenType()
             {
                 if (!empty($this->listenType)) return $this->listenType;
 
@@ -66,9 +66,9 @@
             {
                 return array(
                     'type' => 'entry',
-                    'listen-type' => $this->getlistenType(),
+                    'listen-type' => $this->getListenType(),
                     'media-url' => $this->getMediaURL(),
-                    'listenauthor' => $this->getlistenauthor()
+                    'listen-author' => $this->getListenAuthor()
                 );
             }
 
@@ -94,8 +94,8 @@
 
                     $this->body            = $body;
                     $this->title           = \Idno\Core\site()->currentPage()->getInput('title');
-                    $this->listenauthor          = \Idno\Core\site()->currentPage()->getInput('listenauthor');
-                    $this->listenType       = \Idno\Core\site()->currentPage()->getInput('listenType');
+                    $this->listenAuthor    = \Idno\Core\site()->currentPage()->getInput('listenAuthor');
+                    $this->listenType      = \Idno\Core\site()->currentPage()->getInput('listenType');
                     $this->mediaURL        = \Idno\Core\site()->currentPage()->getInput('mediaURL');
                     $access                = \Idno\Core\site()->currentPage()->getInput('access');
                     $this->setAccess($access);

@@ -12,10 +12,10 @@
     } else {
         $title = $autosave->getValue('listen', 'title');
     }
-    if (!empty($vars['object']->listenauthor)) {
-        $listenauthor = $vars['object']->listenauthor;
+    if (!empty($vars['object']->listenAuthor)) {
+        $listenAuthor = $vars['object']->listenAuthor;
     } else {
-        $listenauthor = $autosave->getValue('listen', 'listenauthor');
+        $listenAuthor = $autosave->getValue('listen', 'listenAuthor');
     }
     if (!empty($vars['object']->listenType)) {
         $listenType = $vars['object']->listenType;
@@ -48,7 +48,7 @@
                     if (empty($vars['object']->_id)) {
 
                         ?>
-                        <h4>What is that song or podcast?</h4>
+                        <h4>What did you listen to?</h4>
                     <?php
 
                     } else {
@@ -92,10 +92,10 @@
                         }
                     </style>
                     <label for="title">Title</label>
-                    <input type="text" name="title" id="title" placeholder="The title of the song, podcast, or album" value="<?= htmlspecialchars($title) ?>" class="form-control"/>                    
+                    <input type="text" name="title" id="title" placeholder="The title of the song, podcast episode, or album" value="<?= htmlspecialchars($title) ?>" class="form-control"/>                    
                     
                     <label for="title">Media Link</label>
-                    <input type="text" name="mediaURL" id="mediaURL" placeholder="Link to song, YouTube, or podcast" value="<?= htmlspecialchars($mediaURL) ?>" class="form-control"/>                    
+                    <input type="text" name="mediaURL" id="mediaURL" placeholder="Link to media" value="<?= htmlspecialchars($mediaURL) ?>" class="form-control"/>                    
                     
                     <!-- styled listen type -->
                     <label for="listenType">Song or Podcast</label>
@@ -107,8 +107,8 @@
                                     <i class="fa fa-volume-up"></i> Song <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#" data-listenType="tv" class="listenType-option"><i class="fa fa-tv"></i>song</a></li>
-                    <li><a href="#" data-listenType="video" class="listenType-option"><i class="fa fa-rss"></i>podcast</a></li>
+                                    <li><a href="#" data-listenType="song" class="listenType-option"><i class="fa fa-tv"></i> Song</a></li>
+                                    <li><a href="#" data-listenType="podcast" class="listenType-option"><i class="fa fa-rss"></i> Podcast</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -147,8 +147,8 @@
                     </script>
                     <!-- end styled watch type -->
                      
-                    <label for="listenauthor">Artist</label>
-                    <input type="text" name="listenauthor" id="listenauthor" placeholder="Who is the artist?" value="<?= htmlspecialchars($listenauthor) ?>" class="form-control"/>                    
+                    <label for="listenAuthor">Artist or Podcast Name</label>
+                    <input type="text" name="listenAuthor" id="listenAuthor" placeholder="Who is the artist?" value="<?= htmlspecialchars($listenAuthor) ?>" class="form-control"/>                    
                 </div>
                 
                 <label for="body">Summary</label>
