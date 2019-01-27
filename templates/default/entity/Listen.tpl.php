@@ -29,7 +29,7 @@
                 <h2>
                     <?php
                     if ($vars['object']->listenType == 'song') {
-                    ?>
+?>
                     <i class="fas fa-music"></i>
 
                     <?php
@@ -55,11 +55,11 @@
                     }
                     if (empty($vars['object']->getMediaURL())) {
                     ?>
-                    Listen <span class="p-name"><?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?></span>
+                    Listened to <span class="p-name"><?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?></span>
                     <?php
                     } else {
                     ?>
-                   Listen <a href="<?= $vars['object']->getMediaURL() ?>" class="p-name"><?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?></a>
+                   Listened to <a href="<?= $vars['object']->getMediaURL() ?>" class="p-name"><?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?></a>
                     <?php
                     }
                     ?>
@@ -69,7 +69,7 @@
                 <?php
                 if (!empty($vars['object']->getlistenauthor())) {
                 ?>
-                <p style="font-style: italic; text-align: right;">By  <?= $vars['object']->getlistenauthor() ?></p>
+                <p style="font-style: italic; border-bottom: 1px solid #ccc;">By  <?= $vars['object']->getlistenauthor() ?></p>
                 <?php
                 }
                 ?>
