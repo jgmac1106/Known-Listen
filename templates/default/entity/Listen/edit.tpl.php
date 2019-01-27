@@ -105,6 +105,7 @@
 <select class="form-control" name="listenType" id="listenType">
   <option data-listenType="song" value="song">song</option>
   <option data-listenType="album" value="album">album</option>
+  <option data-listenType="soundtrack" value="soundtrack">soundtrack</option>
   <option data-listenType="stream" value="stream">stream</option>
   <option data-listenType="podcast" value="podcast">podcast</option>
   <option data-listenType="audiobook" value="audiobook">audio book</option>
