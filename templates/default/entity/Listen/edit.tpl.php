@@ -92,11 +92,11 @@
                         }
                     </style>
                     <label for="title">Title</label>
-                    <input type="text" name="title" id="title" placeholder="The title of the song, podcast, or album" value="<?= htmlspecialchars($title) ?>" class="form-control"/>                    
-                    
+                    <input type="text" name="title" id="title" placeholder="The title of the song, podcast, or album" value="<?= htmlspecialchars($title) ?>" class="form-control"/>
+
                     <label for="title">Media Link</label>
-                    <input type="text" name="mediaURL" id="mediaURL" placeholder="Link to song, YouTube, or podcast" value="<?= htmlspecialchars($mediaURL) ?>" class="form-control"/>                    
-                    
+                    <input type="text" name="mediaURL" id="mediaURL" placeholder="Link to song, YouTube, or podcast" value="<?= htmlspecialchars($mediaURL) ?>" class="form-control"/>
+
                     <!-- styled listen type -->
                     <label for="listenType">Song or Podcast</label>
                     <div class="listenType-block">
@@ -107,8 +107,11 @@
                                     <i class="fa fa-volume-up"></i> Song <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#" data-listenType="tv" class="listenType-option"><i class="fa fa-tv"></i>song</a></li>
-                    <li><a href="#" data-listenType="video" class="listenType-option"><i class="fa fa-rss"></i>podcast</a></li>
+                                    <li><a href="#" data-listenType="tv" class="listenType-option"><i class="fas fa-music"></i>song</a></li>
+                                    <li><a href="#" data-listenType="tv" class="listenType-option"><i class="fas fa-music"></i>album</a></li>
+                                    <li><a href="#" data-listenType="tv" class="listenType-option"><i class="fas fa-rss"></i>stream</a></li>
+									<li><a href="#" data-listenType="video" class="listenType-option"><i class="fas fa-rss"></i>podcast</a></li>
+									<li><a href="#" data-listenType="tv" class="listenType-option"><i class="fas fa-book-reader"></i>audio book</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -141,16 +144,16 @@
                             $('#listenType-button').click();
                             return false;
                         });
-                       
+
                         $('#listenType-id').on('change', function () {
                         });
                     </script>
                     <!-- end styled watch type -->
-                     
+
                     <label for="listenauthor">Artist</label>
-                    <input type="text" name="listenauthor" id="listenauthor" placeholder="Who is the artist?" value="<?= htmlspecialchars($listenauthor) ?>" class="form-control"/>                    
+                    <input type="text" name="listenauthor" id="listenauthor" placeholder="Who is the artist?" value="<?= htmlspecialchars($listenauthor) ?>" class="form-control"/>
                 </div>
-                
+
                 <label for="body">Summary</label>
                 <?= $this->__([
                     'name' => 'body',
@@ -162,11 +165,11 @@
 
                 <?php if (empty($vars['object']->_id)) echo $this->drawSyndication('article'); ?>
                 <?php if (empty($vars['object']->_id)) { ?><input type="hidden" name="forward-to" value="<?= \Idno\Core\site()->config()->getDisplayURL() . 'content/all/'; ?>" /><?php } ?>
-                
+
                 <?= $this->draw('content/access'); ?>
 
                 <p class="button-bar ">
-                    
+
                     <?= \Idno\Core\site()->actions()->signForm('/listen/edit') ?>
                     <input type="button" class="btn btn-cancel" value="Cancel" onclick="tinymce.EditorManager.execCommand('mceRemoveEditor',false, 'body'); hideContentCreateForm();"/>
                     <input type="submit" class="btn btn-primary" value="Publish"/>
