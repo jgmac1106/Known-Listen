@@ -32,7 +32,7 @@
             {
                 if (!empty($this->listenType)) return $this->listenType;
 
-                return '';
+                return 'Nothing';
             }
 
             function getMediaURL()
@@ -99,17 +99,17 @@
                     $this->mediaURL        = \Idno\Core\site()->currentPage()->getInput('mediaURL');
                     $access                = \Idno\Core\site()->currentPage()->getInput('access');
                     $this->setAccess($access);
-                    
+
                     if ($time = \Idno\Core\site()->currentPage()->getInput('created')) {
                         if ($time = strtotime($time)) {
                             $this->created = $time;
                         }
                     }
-    
+
                     if ($new || empty($this->getAttachments())) {
                         if (!empty($_FILES['photo']['tmp_name'])) {
                             if (\Idno\Entities\File::isImage($_FILES['photo']['tmp_name'])) {
-                                
+
                                 // Extract exif data so we can rotate
                                 if (is_callable('exif_read_data') && $_FILES['photo']['type'] == 'image/jpeg') {
                                     try {
@@ -124,7 +124,7 @@
                                 } else {
                                     $exif = false;
                                 }
-                                
+
                                 if ($photo = \Idno\Entities\File::createFromFile($_FILES['photo']['tmp_name'], $_FILES['photo']['name'], $_FILES['photo']['type'], true, true)) {
                                     $this->attachFile($photo);
 
