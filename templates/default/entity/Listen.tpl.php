@@ -60,8 +60,12 @@
     }
     ?>
 
-
 </h2>
+<p>
+<?php if (!empty($vars['object']->getlistenType())) { ?>
+<p class="listenArtist">Type:  <?= $vars['object']->getlistenType() ?></p>
+<?php } ?>
+</p>
 
 
 <!--
