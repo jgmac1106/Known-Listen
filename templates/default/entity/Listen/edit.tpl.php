@@ -90,34 +90,8 @@
                         .listenType-block {
                             margin-bottom: 1em;
                         }
-                    </style>
-                    <label for="title">Title</label>
-                    <input type="text" name="title" id="title" placeholder="The title of the song, podcast, or album" value="<?= htmlspecialchars($title) ?>" class="form-control"/>
 
-                    <label for="title">Media Link</label>
-                    <input type="text" name="mediaURL" id="mediaURL" placeholder="Link to song, YouTube, or podcast" value="<?= htmlspecialchars($mediaURL) ?>" class="form-control"/>
-
-                    <!-- styled listen type -->
-                    <label for="listenType">Song or Podcast</label>
-                    <div class="listenType-block">
-                        <input type="hidden" name="listenType" id="listenType-id" value="<?= $listenType ?>">
-                        <div id="listenType" class="listenType">
-                            <div class="btn-group">
-                                <a class="btn dropdown-toggle listenType" data-toggle="dropdown" href="#" id="listenType-button" aria-expanded="false">
-                                    <i class="fa fa-volume-up"></i> Song <span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#" data-listenType="tv" class="listenType-option"><i class="fas fa-music"></i>song</a></li>
-                                    <li><a href="#" data-listenType="tv" class="listenType-option"><i class="fas fa-music"></i>album</a></li>
-                                    <li><a href="#" data-listenType="tv" class="listenType-option"><i class="fas fa-rss"></i>stream</a></li>
-									<li><a href="#" data-listenType="video" class="listenType-option"><i class="fas fa-rss"></i>podcast</a></li>
-									<li><a href="#" data-listenType="tv" class="listenType-option"><i class="fas fa-book-reader"></i>audio book</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <style>
-                        a.listenType {
+                         a.listenType {
                             background-color: #fff;
                             background-image: none;
                             border: 1px solid #cccccc;
@@ -129,7 +103,33 @@
                         .listenType .caret {
                                 border-top: 4px solid #555;
                         }
+
                     </style>
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title" placeholder="Title of the song, podcast, album, etc." value="<?= htmlspecialchars($title) ?>" class="form-control"/>
+
+                    <label for="mediaURL">Media Link</label>
+                    <input type="text" name="mediaURL" id="mediaURL" placeholder="Link to the song, podcast, album, etc." value="<?= htmlspecialchars($mediaURL) ?>" class="form-control"/>
+
+                    <!-- styled listen type -->
+                    <label for="listenType-id">Type</label>
+                    <div class="listenType-block">
+                        <input type="hidden" name="listenType" id="listenType-id" value="<?= $listenType ?>">
+                        <div id="listenType" class="listenType">
+                            <div class="btn-group">
+                                <a class="btn dropdown-toggle listenType" data-toggle="dropdown" href="#" id="listenType-button" aria-expanded="false">
+                                    Choose <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#" data-listenType="song" class="listenType-option"><i class="fas fa-music"></i>song</a></li>
+                                    <li><a href="#" data-listenType="album" class="listenType-option"><i class="fas fa-music"></i>album</a></li>
+                                    <li><a href="#" data-listenType="stream" class="listenType-option"><i class="fas fa-rss"></i>stream</a></li>
+									<li><a href="#" data-listenType="podcast" class="listenType-option"><i class="fas fa-rss"></i>podcast</a></li>
+									<li><a href="#" data-listenType="audioBook" class="listenType-option"><i class="fas fa-book-reader"></i>audio book</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                     <script>
                         $(document).ready(function () {
                             $('.listenType-option').each(function () {
