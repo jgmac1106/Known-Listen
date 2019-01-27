@@ -2,8 +2,8 @@
             <h2 style="display: none" >
                Listen <?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?>
             </h2>
-            
-            <div class="h-cite">                    
+
+            <div class="h-cite">
                 <?php
                     if ($attachments = $vars['object']->getAttachments()) {
                         foreach ($attachments as $attachment) {
@@ -15,11 +15,11 @@
                             } else {
                                 $src = $mainsrc;
                             }
-                            
+
                             // Patch to correct certain broken URLs caused by https://github.com/idno/known/issues/526
                             $src = preg_replace('/^(https?:\/\/\/)/', \Idno\Core\site()->config()->getDisplayURL(), $src);
                             $mainsrc = preg_replace('/^(https?:\/\/\/)/', \Idno\Core\site()->config()->getDisplayURL(), $mainsrc);
-                            
+
                             ?>
                             <a href="<?= $this->makeDisplayURL($mainsrc) ?>"><img src="<?= $this->makeDisplayURL($src) ?>" style="float: left; margin: 0 2em 1em 0; max-width: 150px" class="u-photo"/></a>
                         <?php
@@ -30,11 +30,27 @@
                     <?php
                     if ($vars['object']->listenType == 'song') {
                     ?>
-                    <i class="fa fa-volume-up"></i>
+                    <i class="fas fa-music"></i>
+
+                    <?php
+                    } else if ($vars['object']->listenType == 'album') {
+                    ?>
+                    <i class="fas fa-music"></i>
+
+                    <?php
+                    } else if ($vars['object']->listenType == 'stream') {
+                    ?>
+                    <i class="fas fa-rss"></i>
+
                     <?php
                     } else if ($vars['object']->listenType == 'podcast') {
                     ?>
-                    <i class="fa fa-rss"></i>
+                    <i class="fas fa-rss"></i>
+
+                    <?php
+                    } else if ($vars['object']->listenType == 'audioBook') {
+                    ?>
+                    <i class="fas fa-book-reader"></i>
                     <?php
                     }
                     if (empty($vars['object']->getMediaURL())) {
@@ -58,10 +74,10 @@
                 <p style="font-style: italic; text-align: right;">By  <?= $vars['object']->getlistenauthor() ?></p>
                 <?php
                 }
-                ?>                
+                ?>
 
             </div>
-            
+
             <div style="display: none;">
                 <p class="h-card vcard p-author">
                     <a href="<?= $vars['object']->getOwner()->getURL(); ?>" class="icon-container">
