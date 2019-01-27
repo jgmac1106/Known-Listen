@@ -1,9 +1,28 @@
 <article class="p-listen-of">
+	<style>
+	.u-photo{
+		margin-right: 1em;
+		margin-bottom: 1em;
+		max-width: 150px;
+		}
+	.listenArtist{
+		 font-style: italic;
+		}
+	.h-cite{
+		border-bottom: 1px solid #ccc;
+		}
+
+	</style>
+
+
+
+
             <h2 style="display: none" >
                Listen <?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?>
             </h2>
 
-            <div class="h-cite">
+            <div class="h-cite clearfix">
+<!--Start cover art-->
                 <?php
                     if ($attachments = $vars['object']->getAttachments()) {
                         foreach ($attachments as $attachment) {
@@ -21,15 +40,35 @@
                             $mainsrc = preg_replace('/^(https?:\/\/\/)/', \Idno\Core\site()->config()->getDisplayURL(), $mainsrc);
 
                             ?>
-                            <a href="<?= $this->makeDisplayURL($mainsrc) ?>"><img src="<?= $this->makeDisplayURL($src) ?>" style="float: left; margin: 0 2em 1em 0; max-width: 150px" class="u-photo"/></a>
+                             <a href="<?= $this->makeDisplayURL($mainsrc) ?>"><img src="<?= $this->makeDisplayURL($src) ?>" class="u-photo pull-left"/></a>
                         <?php
                         }
                     }
                 ?>
+				<!--End cover art-->
+
+<h2>
+	<?php
+    	if (empty($vars['object']->getMediaURL())) {
+    ?>
+	Listened to <span class="p-name"><?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?></span>
+	<?php
+    } else {
+    ?>
+    Listened to <a href="<?= $vars['object']->getMediaURL() ?>" class="p-name"><?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?></a>
+    <?php
+    }
+    ?>
+
+
+</h2>
+
+
+<!--
                 <h2>
                     <?php
                     if ($vars['object']->listenType == 'song') {
-?>
+					?>
                     <i class="fas fa-music"></i>
 
                     <?php
@@ -55,6 +94,7 @@
                     }
                     if (empty($vars['object']->getMediaURL())) {
                     ?>
+
                     Listened to <span class="p-name"><?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?></span>
                     <?php
                     } else {
@@ -64,20 +104,28 @@
                     }
                     ?>
                 </h2>
-            </div>
-            <div class="e-content">
+-->
+
+
                 <?php
                 if (!empty($vars['object']->getlistenauthor())) {
                 ?>
-                <p style="font-style: italic; border-bottom: 1px solid #ccc;">By  <?= $vars['object']->getlistenauthor() ?></p>
+                <p class="listenArtist">By  <?= $vars['object']->getlistenauthor() ?></p>
                 <?php
                 }
                 ?>
 
 
-                <?= $this->__(['value' => $vars['object']->body, 'object' => $vars['object']])->draw('forms/output/richtext'); ?>
 
 
+
+
+
+
+
+            </div>
+            <div class="e-content">
+				<?= $this->__(['value' => $vars['object']->body, 'object' => $vars['object']])->draw('forms/output/richtext'); ?>
             </div>
 
             <div style="display: none;">
