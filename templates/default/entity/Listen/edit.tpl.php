@@ -94,13 +94,30 @@
                         }
 
                     </style>
-                    <label for="title">Title</label>
-                    <input type="text" name="title" id="title" placeholder="Title of the song, podcast, album, etc." value="<?= htmlspecialchars($title) ?>" class="form-control"/>
+                    <p><label for="title">Title</label>
+                    <input type="text" name="title" id="title" placeholder="Title of the song, podcast, album, etc." value="<?= htmlspecialchars($title) ?>" class="form-control"/></p>
 
-                    <label for="mediaURL">Media Link</label>
-                    <input type="text" name="mediaURL" id="mediaURL" placeholder="Link to the song, podcast, album, etc." value="<?= htmlspecialchars($mediaURL) ?>" class="form-control"/>
+                    <p><label for="mediaURL">Media Link</label>
+                    <input type="text" name="mediaURL" id="mediaURL" placeholder="Link to the song, podcast, album, etc." value="<?= htmlspecialchars($mediaURL) ?>" class="form-control"/></p>
 
-                    <!-- styled listen type -->
+                    <p>
+                    <label for="listenType">Type</label>
+<select class="form-control" name="listenType" id="listenType">
+  <option data-listenType="song" value="song">song</option>
+  <option data-listenType="album" value="album">album</option>
+  <option data-listenType="stream" value="stream">stream</option>
+  <option data-listenType="podcast" value="podcast">podcast</option>
+  <option data-listenType="audiobook" value="audiobook">audio book</option>
+</select></p>
+
+
+
+
+
+
+
+<!-- styled listen type -->
+<!--
                     <label for="listenType-id">Type</label>
                     <div class="listenType-block">
                         <input type="hidden" name="listenType" id="listenType-id" value="<?= $listenType ?>">
@@ -137,13 +154,14 @@
                         $('#listenType-id').on('change', function () {
                         });
                     </script>
+                    -->
                     <!-- end styled watch type -->
 
-                    <label for="listenauthor">Artist</label>
-                    <input type="text" name="listenauthor" id="listenauthor" placeholder="Who is the artist?" value="<?= htmlspecialchars($listenauthor) ?>" class="form-control"/>
+                    <p><label for="listenauthor">Artist</label>
+                    <input type="text" name="listenauthor" id="listenauthor" placeholder="Who is the artist?" value="<?= htmlspecialchars($listenauthor) ?>" class="form-control"/></p>
                 </div>
 
-                <label for="body">Summary</label>
+                <p><label for="body">Summary</label>
                 <?= $this->__([
                     'name' => 'body',
                     'value' => $body,
@@ -155,7 +173,7 @@
                 <?php if (empty($vars['object']->_id)) echo $this->drawSyndication('article'); ?>
                 <?php if (empty($vars['object']->_id)) { ?><input type="hidden" name="forward-to" value="<?= \Idno\Core\site()->config()->getDisplayURL() . 'content/all/'; ?>" /><?php } ?>
 
-                <?= $this->draw('content/access'); ?>
+                <?= $this->draw('content/access'); ?></p>
 
                 <p class="button-bar ">
 
