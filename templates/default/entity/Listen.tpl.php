@@ -66,8 +66,6 @@
                 </h2>
             </div>
             <div class="e-content">
-                <?= $this->__(['value' => $vars['object']->body, 'object' => $vars['object']])->draw('forms/output/richtext'); ?>
-
                 <?php
                 if (!empty($vars['object']->getlistenauthor())) {
                 ?>
@@ -75,6 +73,10 @@
                 <?php
                 }
                 ?>
+
+
+                <?= $this->__(['value' => $vars['object']->body, 'object' => $vars['object']])->draw('forms/output/richtext'); ?>
+
 
             </div>
 
