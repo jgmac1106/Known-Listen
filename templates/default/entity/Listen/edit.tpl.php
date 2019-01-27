@@ -67,17 +67,7 @@
 
                         ?>
                         <div id="photo-preview"></div>
-                        <p>
-                                <span class="btn btn-primary btn-file">
-                                        <i class="fa fa-camera"></i> <span
-                                        id="photo-filename">Select a photo</span> <input type="file" name="photo"
-                                                                                         id="photo"
-                                                                                         class="col-md-9 form-control"
-                                                                                         accept="image/*;capture=camera"
-                                                                                         onchange="photoPreview(this)"/>
-
-                                    </span>
-                        </p>
+                        	<p><span class="btn btn-primary btn-file"><i class="fa fa-camera"></i> <span id="photo-filename">Select a image</span> <input type="file" name="photo" id="photo" class="col-md-9 form-control" accept="image/*;capture=camera" onchange="photoPreview(this)"/></span></p>
 
                     <?php
 
@@ -85,7 +75,6 @@
 
                 ?>
                 <div class="content-form">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
                     <style>
                         .listenType-block {
                             margin-bottom: 1em;
