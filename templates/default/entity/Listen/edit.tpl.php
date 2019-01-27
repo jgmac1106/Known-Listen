@@ -48,7 +48,7 @@
                     if (empty($vars['object']->_id)) {
 
                         ?>
-                        <h4>What is that song or podcast?</h4>
+                        <h4>What did you listen to?</h4>
                     <?php
 
                     } else {
