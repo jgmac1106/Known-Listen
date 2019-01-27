@@ -55,6 +55,19 @@
 	<?php
     } else {
     ?>
+    <span>
+<?php if ($vars['object']->listenType == 'song') { ?>
+<i class="fas fa-music"></i>
+<?php } else if ($vars['object']->listenType == 'album') { ?>
+<i class="fas fa-music"></i>
+<?php } else if ($vars['object']->listenType == 'stream') { ?>
+<i class="fas fa-rss"></i>
+<?php } else if ($vars['object']->listenType == 'podcast') { ?>
+<i class="fas fa-rss"></i>
+<?php } else if ($vars['object']->listenType == 'audioBook') { ?>
+<i class="fas fa-book-reader"></i>
+<?php }; ?>
+</span>
     Listened to <a href="<?= $vars['object']->getMediaURL() ?>" class="p-name"><?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?></a>
     <?php
     }
@@ -65,6 +78,22 @@
 <?php if (!empty($vars['object']->getlistenType())) { ?>
 <p class="listenArtist">Type:  <?= $vars['object']->getlistenType() ?></p>
 <?php } ?>
+
+
+
+<span>
+<?php if ($vars['object']->listenType == 'song') { ?>
+<i class="fas fa-music"></i>
+<?php } else if ($vars['object']->listenType == 'album') { ?>
+<i class="fas fa-music"></i>
+<?php } else if ($vars['object']->listenType == 'stream') { ?>
+<i class="fas fa-rss"></i>
+<?php } else if ($vars['object']->listenType == 'podcast') { ?>
+<i class="fas fa-rss"></i>
+<?php } else if ($vars['object']->listenType == 'audioBook') { ?>
+<i class="fas fa-book-reader"></i>
+<?php }; ?>
+</span>
 </p>
 
 
