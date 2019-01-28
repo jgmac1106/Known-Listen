@@ -23,7 +23,7 @@
                 ))->draw('entity/Listen/edit');
 
                 if (empty($vars['object']->_id)) {
-                    $title = 'What is that podcast or groove?';
+                    $title = 'What did you listen to?';
                 } else {
                     $title = 'Edit what you listend to';
                 }
