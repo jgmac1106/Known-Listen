@@ -13,23 +13,13 @@
 		}
 	</style>
 
-
-
-
-            <h2 style="display: none" >
-               Listened to <?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?>
-            </h2>
-
-            <div class="h-cite clearfix">
-
-				<h2>
-	<?php
-    	if (empty($vars['object']->getMediaURL())) {
-    ?>
-	Listened to <span class="p-name"><?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?></span>
-	<?php
-    } else {
-    ?>
+    <h2 class="hidden">Listened to <?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?></h2>
+    <div class="h-cite clearfix">
+        <h2>
+	       <?php if (empty($vars['object']->getMediaURL())) { ?>
+	       Listened to <span class="p-name"><?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?></span>
+	       <?php } else { ?>
+    <!--Start type icon-->
     <span>
 <?php if ($vars['object']->listenType == 'song') { ?>
 <i class="fas fa-music"></i>
@@ -41,10 +31,11 @@
 <i class="fas fa-rss"></i>
 <?php } else if ($vars['object']->listenType == 'podcast') { ?>
 <i class="fas fa-rss"></i>
-<?php } else if ($vars['object']->listenType == 'audioBook') { ?>
+<?php } else if ($vars['object']->listenType == 'audiobook') { ?>
 <i class="fas fa-book-reader"></i>
 <?php }; ?>
 </span>
+<!--End type icon-->
     Listened to
     <!--Start cover art-->
                 <?php

@@ -209,6 +209,6 @@
         //}
     </script>
 
-    <div id="bodyautosave" style="display:none"></div>
+    <div id="bodyautosave" class="hidden"></div>
 <?= $this->draw('entity/edit/footer'); ?>
 
