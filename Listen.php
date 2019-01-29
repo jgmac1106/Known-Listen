@@ -32,7 +32,7 @@
             {
                 if (!empty($this->listenType)) return $this->listenType;
 
-                return 'Nothing';
+                return '';
             }
 
             function getMediaURL()
