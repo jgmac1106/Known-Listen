@@ -35,6 +35,23 @@
 			</span>
 			<!--End type icon-->
 	       Listened to
+	       <!--Start type description-->
+			<span>
+			<?php if ($vars['object']->listenType == 'song') { ?>
+			the song,
+			<?php } else if ($vars['object']->listenType == 'album') { ?>
+			the album,
+			<?php } else if ($vars['object']->listenType == 'soundtrack') { ?>
+			the soundtrack of
+			<?php } else if ($vars['object']->listenType == 'stream') { ?>
+			the stream of
+			<?php } else if ($vars['object']->listenType == 'podcast') { ?>
+			the podcast,
+			<?php } else if ($vars['object']->listenType == 'audiobook') { ?>
+			the audiobook of
+			<?php }; ?>
+			</span>
+			<!--End type description-->
 	       <!--Start cover art-->
                 <?php
                     if ($attachments = $vars['object']->getAttachments()) {
@@ -61,25 +78,7 @@
 				<!--End cover art-->
 	       <span class="p-name"><?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?></span>
 	       <?php } else { ?>
-    <!--Start type icon-->
-    <span>
-<?php if ($vars['object']->listenType == 'song') { ?>
-<i class="fas fa-music"></i>
-<?php } else if ($vars['object']->listenType == 'album') { ?>
-<i class="fas fa-music"></i>
-<?php } else if ($vars['object']->listenType == 'soundtrack') { ?>
-<i class="fas fa-film"></i></i>
-<?php } else if ($vars['object']->listenType == 'stream') { ?>
-<i class="fas fa-rss"></i>
-<?php } else if ($vars['object']->listenType == 'podcast') { ?>
-<i class="fas fa-rss"></i>
-<?php } else if ($vars['object']->listenType == 'audiobook') { ?>
-<i class="fas fa-book-reader"></i>
-<?php }; ?>
-</span>
-<!--End type icon-->
-    Listened to
-    <!--Start cover art-->
+        <!--Start cover art-->
                 <?php
                     if ($attachments = $vars['object']->getAttachments()) {
                         foreach ($attachments as $attachment) {
@@ -103,6 +102,42 @@
                     }
                 ?>
 				<!--End cover art-->
+    <!--Start type icon-->
+    <span>
+<?php if ($vars['object']->listenType == 'song') { ?>
+<i class="fas fa-music"></i>
+<?php } else if ($vars['object']->listenType == 'album') { ?>
+<i class="fas fa-music"></i>
+<?php } else if ($vars['object']->listenType == 'soundtrack') { ?>
+<i class="fas fa-film"></i></i>
+<?php } else if ($vars['object']->listenType == 'stream') { ?>
+<i class="fas fa-rss"></i>
+<?php } else if ($vars['object']->listenType == 'podcast') { ?>
+<i class="fas fa-rss"></i>
+<?php } else if ($vars['object']->listenType == 'audiobook') { ?>
+<i class="fas fa-book-reader"></i>
+<?php }; ?>
+</span>
+<!--End type icon-->
+    Listened to
+    <!--Start type description-->
+			<span>
+			<?php if ($vars['object']->listenType == 'song') { ?>
+			the song,
+			<?php } else if ($vars['object']->listenType == 'album') { ?>
+			the album,
+			<?php } else if ($vars['object']->listenType == 'soundtrack') { ?>
+			the soundtrack of
+			<?php } else if ($vars['object']->listenType == 'stream') { ?>
+			the stream of
+			<?php } else if ($vars['object']->listenType == 'podcast') { ?>
+			the podcast,
+			<?php } else if ($vars['object']->listenType == 'audiobook') { ?>
+			the audiobook of
+			<?php }; ?>
+			</span>
+			<!--End type description-->
+
 
     <a href="<?= $vars['object']->getMediaURL() ?>" class="p-name"><?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?></a>
     <?php
@@ -117,21 +152,12 @@
                 <?php
                 }
                 ?>
-
-
-
-
-
-
-
-
-
             </div>
             <div class="e-content">
 				<?= $this->__(['value' => $vars['object']->body, 'object' => $vars['object']])->draw('forms/output/richtext'); ?>
             </div>
 
-            <div style="display: none;">
+            <div class="hidden">
                 <p class="h-card vcard p-author">
                     <a href="<?= $vars['object']->getOwner()->getURL(); ?>" class="icon-container">
                         <img class="u-logo logo u-photo photo" src="<?= $vars['object']->getOwner()->getIcon(); ?>"/>
