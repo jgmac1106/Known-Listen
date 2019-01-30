@@ -17,7 +17,49 @@
     <div class="h-cite clearfix">
         <h2>
 	       <?php if (empty($vars['object']->getMediaURL())) { ?>
-	       Listened to <span class="p-name"><?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?></span>
+			<!--Start type icon-->
+			<span>
+			<?php if ($vars['object']->listenType == 'song') { ?>
+			<i class="fas fa-music"></i>
+			<?php } else if ($vars['object']->listenType == 'album') { ?>
+			<i class="fas fa-music"></i>
+			<?php } else if ($vars['object']->listenType == 'soundtrack') { ?>
+			<i class="fas fa-film"></i></i>
+			<?php } else if ($vars['object']->listenType == 'stream') { ?>
+			<i class="fas fa-rss"></i>
+			<?php } else if ($vars['object']->listenType == 'podcast') { ?>
+			<i class="fas fa-rss"></i>
+			<?php } else if ($vars['object']->listenType == 'audiobook') { ?>
+			<i class="fas fa-book-reader"></i>
+			<?php }; ?>
+			</span>
+			<!--End type icon-->
+	       Listened to
+	       <!--Start cover art-->
+                <?php
+                    if ($attachments = $vars['object']->getAttachments()) {
+                        foreach ($attachments as $attachment) {
+                            $mainsrc = $attachment['url'];
+                            if (!empty($vars['object']->thumbnail_large)) {
+                                $src = $vars['object']->thumbnail_large;
+                            } else if (!empty($vars['object']->thumbnail)) { // Backwards compatibility
+                                $src = $vars['object']->thumbnail;
+                            } else {
+                                $src = $mainsrc;
+                            }
+
+                            // Patch to correct certain broken URLs caused by https://github.com/idno/known/issues/526
+                            $src = preg_replace('/^(https?:\/\/\/)/', \Idno\Core\site()->config()->getDisplayURL(), $src);
+                            $mainsrc = preg_replace('/^(https?:\/\/\/)/', \Idno\Core\site()->config()->getDisplayURL(), $mainsrc);
+
+                            ?>
+                             <a href="<?= $this->makeDisplayURL($mainsrc) ?>"><img src="<?= $this->makeDisplayURL($src) ?>" class="u-photo pull-left"/></a>
+                        <?php
+                        }
+                    }
+                ?>
+				<!--End cover art-->
+	       <span class="p-name"><?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?></span>
 	       <?php } else { ?>
     <!--Start type icon-->
     <span>
