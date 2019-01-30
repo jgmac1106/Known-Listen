@@ -1,6 +1,6 @@
 <article class="p-listen-of">
 	<style>
-	.u-photo{
+	.idno-listen .u-photo{
 		margin-right: 1em;
 		margin-bottom: 1em;
 		max-width: 150px;
