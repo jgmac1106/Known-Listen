@@ -12,10 +12,10 @@
     } else {
         $title = $autosave->getValue('listen', 'title');
     }
-    if (!empty($vars['object']->listenauthor)) {
-        $listenauthor = $vars['object']->listenauthor;
+    if (!empty($vars['object']->listenAuthor)) {
+        $listenAuthor = $vars['object']->listenAuthor;
     } else {
-        $listenauthor = $autosave->getValue('listen', 'listenauthor');
+        $listenAuthor = $autosave->getValue('listen', 'listenAuthor');
     }
     if (!empty($vars['object']->listenType)) {
         $listenType = $vars['object']->listenType;
@@ -80,7 +80,6 @@
                             margin-bottom: 1em;
                         }
 
-                         a.listenType {
                             background-color: #fff;
                             background-image: none;
                             border: 1px solid #cccccc;
@@ -158,8 +157,6 @@
                     -->
                     <!-- end styled watch type -->
 
-                    <p><label for="listenauthor">Artist</label>
-                    <input type="text" name="listenauthor" id="listenauthor" placeholder="Who is the artist?" value="<?= htmlspecialchars($listenauthor) ?>" class="form-control"/></p>
                 </div>
 
                 <p><label for="body">Summary</label>
