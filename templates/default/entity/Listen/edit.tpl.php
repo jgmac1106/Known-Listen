@@ -67,17 +67,7 @@
 
                         ?>
                         <div id="photo-preview"></div>
-                        <p>
-                                <span class="btn btn-primary btn-file">
-                                        <i class="fa fa-camera"></i> <span
-                                        id="photo-filename">Select a photo</span> <input type="file" name="photo"
-                                                                                         id="photo"
-                                                                                         class="col-md-9 form-control"
-                                                                                         accept="image/*;capture=camera"
-                                                                                         onchange="photoPreview(this)"/>
-
-                                    </span>
-                        </p>
+                        	<p><span class="btn btn-primary btn-file"><i class="fa fa-camera"></i> <span id="photo-filename">Select a image</span> <input type="file" name="photo" id="photo" class="col-md-9 form-control" accept="image/*;capture=camera" onchange="photoPreview(this)"/></span></p>
 
                     <?php
 
@@ -85,36 +75,11 @@
 
                 ?>
                 <div class="content-form">
-
                     <style>
                         .listenType-block {
                             margin-bottom: 1em;
                         }
-                    </style>
-                    <label for="title">Title</label>
-                    <input type="text" name="title" id="title" placeholder="The title of the song, podcast episode, or album" value="<?= htmlspecialchars($title) ?>" class="form-control"/>                    
-                    
-                    <label for="title">Media Link</label>
-                    <input type="text" name="mediaURL" id="mediaURL" placeholder="Link to media" value="<?= htmlspecialchars($mediaURL) ?>" class="form-control"/>                    
-                    
-                    <!-- styled listen type -->
-                    <label for="listenType">Song or Podcast</label>
-                    <div class="listenType-block">
-                        <input type="hidden" name="listenType" id="listenType-id" value="<?= $listenType ?>">
-                        <div id="listenType" class="listenType">
-                            <div class="btn-group">
-                                <a class="btn dropdown-toggle listenType" data-toggle="dropdown" href="#" id="listenType-button" aria-expanded="false">
-                                    <i class="fa fa-volume-up"></i> Song <span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#" data-listenType="song" class="listenType-option"><i class="fa fa-tv"></i> Song</a></li>
-                                    <li><a href="#" data-listenType="podcast" class="listenType-option"><i class="fa fa-rss"></i> Podcast</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <style>
-                        a.listenType {
+
                             background-color: #fff;
                             background-image: none;
                             border: 1px solid #cccccc;
@@ -126,7 +91,51 @@
                         .listenType .caret {
                                 border-top: 4px solid #555;
                         }
+
                     </style>
+                    <p><label for="title">Title</label>
+                    <input type="text" name="title" id="title" placeholder="Title of the song, podcast, album, etc." value="<?= htmlspecialchars($title) ?>" class="form-control"/></p>
+
+                    <p><label for="mediaURL">Media Link</label>
+                    <input type="text" name="mediaURL" id="mediaURL" placeholder="Link to the song, podcast, album, etc." value="<?= htmlspecialchars($mediaURL) ?>" class="form-control"/></p>
+
+                    <p>
+                    <label for="listenType">Type</label>
+<select class="form-control" name="listenType" id="listenType">
+  <option data-listenType="song" value="song">song</option>
+  <option data-listenType="album" value="album">album</option>
+  <option data-listenType="soundtrack" value="soundtrack">soundtrack</option>
+  <option data-listenType="stream" value="stream">stream</option>
+  <option data-listenType="podcast" value="podcast">podcast</option>
+  <option data-listenType="audiobook" value="audiobook">audio book</option>
+</select></p>
+
+
+
+
+
+
+
+<!-- styled listen type -->
+<!--
+                    <label for="listenType-id">Type</label>
+                    <div class="listenType-block">
+                        <input type="hidden" name="listenType" id="listenType-id" value="<?= $listenType ?>">
+                        <div id="listenType" class="listenType">
+                            <div class="btn-group">
+                                <a class="btn dropdown-toggle listenType" data-toggle="dropdown" href="#" id="listenType-button" aria-expanded="false">
+                                    Choose <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#" data-listenType="song" class="listenType-option"><i class="fas fa-music"></i>song</a></li>
+                                    <li><a href="#" data-listenType="album" class="listenType-option"><i class="fas fa-music"></i>album</a></li>
+                                    <li><a href="#" data-listenType="stream" class="listenType-option"><i class="fas fa-rss"></i>stream</a></li>
+									<li><a href="#" data-listenType="podcast" class="listenType-option"><i class="fas fa-rss"></i>podcast</a></li>
+									<li><a href="#" data-listenType="audioBook" class="listenType-option"><i class="fas fa-book-reader"></i>audio book</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                     <script>
                         $(document).ready(function () {
                             $('.listenType-option').each(function () {
@@ -141,17 +150,16 @@
                             $('#listenType-button').click();
                             return false;
                         });
-                       
+
                         $('#listenType-id').on('change', function () {
                         });
                     </script>
+                    -->
                     <!-- end styled watch type -->
-                     
-                    <label for="listenAuthor">Artist or Podcast Name</label>
-                    <input type="text" name="listenAuthor" id="listenAuthor" placeholder="Who is the artist?" value="<?= htmlspecialchars($listenAuthor) ?>" class="form-control"/>                    
+
                 </div>
-                
-                <label for="body">Summary</label>
+
+                <p><label for="body">Summary</label>
                 <?= $this->__([
                     'name' => 'body',
                     'value' => $body,
@@ -162,11 +170,11 @@
 
                 <?php if (empty($vars['object']->_id)) echo $this->drawSyndication('article'); ?>
                 <?php if (empty($vars['object']->_id)) { ?><input type="hidden" name="forward-to" value="<?= \Idno\Core\site()->config()->getDisplayURL() . 'content/all/'; ?>" /><?php } ?>
-                
-                <?= $this->draw('content/access'); ?>
+
+                <?= $this->draw('content/access'); ?></p>
 
                 <p class="button-bar ">
-                    
+
                     <?= \Idno\Core\site()->actions()->signForm('/listen/edit') ?>
                     <input type="button" class="btn btn-cancel" value="Cancel" onclick="tinymce.EditorManager.execCommand('mceRemoveEditor',false, 'body'); hideContentCreateForm();"/>
                     <input type="submit" class="btn btn-primary" value="Publish"/>
@@ -198,6 +206,6 @@
         //}
     </script>
 
-    <div id="bodyautosave" style="display:none"></div>
+    <div id="bodyautosave" class="hidden"></div>
 <?= $this->draw('entity/edit/footer'); ?>
 
