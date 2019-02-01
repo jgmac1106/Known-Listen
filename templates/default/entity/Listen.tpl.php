@@ -145,9 +145,9 @@
 
 </h2>
  <?php
-                if (!empty($vars['object']->getlistenauthor())) {
+                if (!empty($vars['object']->getListenAuthor())) {
                 ?>
-                <p class="listenArtist">By  <?= $vars['object']->getlistenauthor() ?></p>
+                <p class="listenArtist">By  <?= $vars['object']->getlistenAuthor() ?></p>
                 <?php
                 }
                 ?>

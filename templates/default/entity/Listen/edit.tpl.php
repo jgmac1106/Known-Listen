@@ -158,7 +158,7 @@
                     <!-- end styled watch type -->
 
                     <p><label for="listenAuthor">Artist</label>
-                    <input type="text" name="listenAuthor" id="listenAuthor" placeholder="Who is the artist?" value="<?= htmlspecialchars($listenauthor) ?>" class="form-control"/></p>
+                    <input type="text" name="listenAuthor" id="listenAuthor" placeholder="Who is the artist?" value="<?= htmlspecialchars($listenAuthor) ?>" class="form-control"/></p>
 
 
                 </div>
