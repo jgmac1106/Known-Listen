@@ -78,8 +78,6 @@
                     <style>
                         .listenType-block {
                             margin-bottom: 1em;
-                        }
-
                             background-color: #fff;
                             background-image: none;
                             border: 1px solid #cccccc;
