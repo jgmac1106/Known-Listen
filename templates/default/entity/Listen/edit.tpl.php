@@ -102,12 +102,12 @@
                     <p>
                     <label for="listenType">Type</label>
 <select class="form-control" name="listenType" id="listenType">
-  <option data-listenType="song" value="song">song</option>
-  <option data-listenType="album" value="album">album</option>
-  <option data-listenType="soundtrack" value="soundtrack">soundtrack</option>
-  <option data-listenType="stream" value="stream">stream</option>
-  <option data-listenType="podcast" value="podcast">podcast</option>
-  <option data-listenType="audiobook" value="audiobook">audio book</option>
+  <option data-listenType="song" value="song" <?php if ($listenType == 'song' ) echo 'selected' ; ?>>song</option>
+  <option data-listenType="album" value="album" <?php if ($listenType == 'album' ) echo 'selected' ; ?>>album</option>
+  <option data-listenType="soundtrack" value="soundtrack" <?php if ($listenType == 'soundtrack' ) echo 'selected' ; ?>>soundtrack</option>
+  <option data-listenType="stream" value="stream" <?php if ($listenType == 'stream' ) echo 'selected' ; ?>>stream</option>
+  <option data-listenType="podcast" value="podcast" <?php if ($listenType == 'podcast' ) echo 'selected' ; ?>>podcast</option>
+  <option data-listenType="audiobook" value="audiobook" <?php if ($listenType == 'audiobook' ) echo 'selected' ; ?>>audio book</option>
 </select></p>
 
 
